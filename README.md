@@ -1,11 +1,8 @@
 # RangeSlider
 
-Html range slider component with two thumbs.
-[View Demo](https://codepen.io/vovayatsyuk/full/ZEvPJeW)
+Tiny html range slider with two thumbs. 1.5kB of minified and gzipped JS and CSS.
 
- -  No dependencies
- -  Tiny size
- -  Touch support
+[View Demo](https://codepen.io/vovayatsyuk/full/ZEvPJeW)
 
 ## Installation
 
