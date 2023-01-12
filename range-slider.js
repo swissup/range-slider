@@ -6,7 +6,6 @@
 
 class RangeSlider extends HTMLElement {
     connectedCallback() {
-        RangeSlider.addStyles();
         this.addMarkup();
         this.addEventListener('touchstart', this.onMouseDown.bind(this), { passive: true });
         this.addEventListener('mousedown', this.onMouseDown.bind(this));
@@ -121,125 +120,6 @@ class RangeSlider extends HTMLElement {
         this.removeEventListener('touchend', this.onMouseUp);
         this.removeEventListener('mouseup', this.onMouseUp);
         this.removeEventListener('input', this.onInput);
-    }
-
-    static addStyles() {
-        if (RangeSlider.styled) {
-            return;
-        }
-
-        const style = document.createElement('style');
-
-        style.innerText = `
-            range-slider {
-                --thumb-width: 16px;
-                --thumb-height: var(--thumb-width);
-                --thumb-mobile-scale: 1.4;
-                --thumb-mobile-width: calc(var(--thumb-width) * var(--thumb-mobile-scale));
-                --thumb-mobile-height: calc(var(--thumb-height) * var(--thumb-mobile-scale));
-                --thumb-border: 1px solid #fff;
-                --thumb-border-radius: 999px;
-                --thumb-bg: 10 89 254;
-                --thumb-mobile-scale: 1.4;
-                --track-height: 4px;
-                --track-border-radius: var(--thumb-border-radius);
-                --track-bg: 234 234 234;
-
-                position: relative;
-                display: inline-block;
-            }
-            range-slider input {
-                margin: 0;
-                width: 100%;
-                -webkit-appearance: none;
-            }
-            range-slider input:focus {
-                outline: 0;
-            }
-            range-slider::before,
-            range-slider input::-webkit-slider-runnable-track {
-                background: rgb(var(--track-bg));
-                height: var(--track-height);
-                border-radius: var(--track-border-radius);
-            }
-            range-slider input::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                cursor: pointer;
-                background: rgba(var(--thumb-bg) / .9);
-                border: var(--thumb-border);
-                border-radius: var(--thumb-border-radius);
-                height: var(--thumb-height);
-                width: var(--thumb-width);
-                margin-top: calc(var(--track-height) / 2 - var(--thumb-height) / 2);
-                transition: box-shadow 200ms ease-out;
-            }
-            @media (pointer:coarse) {
-                range-slider input::-webkit-slider-thumb {
-                    --thumb-height: var(--thumb-mobile-height);
-                    --thumb-width: var(--thumb-mobile-width);
-                }
-            }
-            range-slider input:focus::-webkit-slider-thumb,
-            range-slider input:active::-webkit-slider-thumb {
-                box-shadow: 0 0 0 3px rgba(var(--thumb-bg) / .2);
-            }
-            range-slider input::-moz-range-thumb {
-                -webkit-appearance: none;
-                cursor: pointer;
-                background: rgba(var(--thumb-bg) / .9);
-                border: var(--thumb-border);
-                border-radius: var(--thumb-border-radius);
-                height: var(--thumb-height);
-                width: var(--thumb-width);
-                margin-top: calc(var(--track-height) / 2 - var(--thumb-height) / 2);
-                transition: box-shadow 200ms;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            range-slider input:focus::-moz-range-thumb {
-                box-shadow: 0 0 0 3px rgba(var(--thumb-bg) / .2);
-            }
-            range-slider .filler {
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-            }
-            range-slider .range {
-                position: absolute;
-                left: 0;
-                top: 50%;
-                height: 0 !important;
-                overflow: visible;
-            }
-            range-slider .range::-webkit-slider-thumb {
-                position: relative;
-                z-index: 2;
-            }
-            range-slider .range:first-child::-webkit-slider-thumb {
-                z-index: 3;
-            }
-
-            @-moz-document url-prefix() {
-                range-slider .range::-moz-range-track {
-                    background: transparent !important;
-                }
-                range-slider::before {
-                    content: '';
-                    width: 100%;
-                    position: absolute;
-                    top: calc(50% - 4px / 2);
-                }
-                range-slider .range {
-                    top: calc(50% + 20px);
-                }
-                range-slider .range::-moz-range-thumb {
-                    transform: translateY(-20px);
-                }
-            }
-            `;
-
-        document.head.append(style);
-
-        RangeSlider.styled = true;
     }
 }
 

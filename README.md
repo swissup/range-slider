@@ -1,19 +1,20 @@
 # RangeSlider
 
 Html range slider component with two thumbs.
-[View Demo](https://codepen.io/vovayatsyuk/pen/ZEvPJeW?editors=0010)
+[View Demo](https://codepen.io/vovayatsyuk/full/ZEvPJeW)
 
  -  No dependencies
  -  Tiny size
- -  Powered by the native range input
+ -  Touch support
 
 ## Installation
 
-Download the `range-slider.js` file and add it to the page:
+Download source files and add them to the page:
 
 ```html
 <head>
     <script src="range-slider.js" defer></script>
+    <link href="range-slider.css" rel="stylesheet">
 </head>
 ```
 
@@ -22,7 +23,7 @@ Download the `range-slider.js` file and add it to the page:
 Add the following html to use a range slider:
 
 ```html
-<range-slider name="price" min="0" max="100" value="10-90" step="10"></range-slider>
+<range-slider name="price" min="0" max="100" value="10-90" step="10"/>
 ```
 
 Of course, you can work with the component in javascript:
@@ -35,6 +36,19 @@ range.value = [30, 40];
 document.addEventListener('range:input', function (event) {
     console.log(event.target.value);
 });
+```
+
+## Prevent CLS
+
+To prevent layout shift when slider is initializing use the following html
+instead of short one:
+
+```html
+<range-slider name="price" min="0" max="100" value="10-90" step="10">
+    <input class="range" type="range" min="0" max="100" value="10" step="10"/>
+    <input class="range" type="range" min="0" max="100" value="90" step="10"/>
+    <input class="filler" disabled type="range"/>
+</range-slider>
 ```
 
 ## Styles
