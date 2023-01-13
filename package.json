@@ -1,0 +1,23 @@
+{
+  "name": "@swissup/range-slider",
+  "version": "1.0.0",
+  "description": "Tiny html range slider with two thumbs",
+  "main": "range-slider.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swissup/range-slider.git"
+  },
+  "keywords": [
+    "range",
+    "range-slider"
+  ],
+  "author": "Vova Yatsyuk <vova.yatsyuk@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/swissup/range-slider/issues"
+  },
+  "homepage": "https://github.com/swissup/range-slider#readme"
+}
