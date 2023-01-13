@@ -15,6 +15,11 @@ Download source files and add them to the page:
 </head>
 ```
 
+Minified versions:
+
+ - [range-slider.min.js](https://cdn.jsdelivr.net/npm/@swissup/range-slider@latest/range-slider.min.js)
+ - [range-slider.min.css](https://cdn.jsdelivr.net/npm/@swissup/range-slider@latest/range-slider.min.css)
+
 ## Usage
 
 Add the following html to use a range slider:
