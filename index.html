@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Range Slider</title>
+  <script src="./range-slider.js"></script>
+  <link rel="stylesheet" href="./range-slider.css"/>
+</head>
+<body>
+  <range-slider value="0-100">
+    <input class="range" type="range" value="0"/>
+    <input class="range" type="range" value="100"/>
+    <input class="filler" disabled type="range"/>
+  </range-slider>
+
+  <range-slider value="20-80" step="20">
+    <input class="range" type="range" value="20"/>
+    <input class="range" type="range" value="80"/>
+    <input class="filler" disabled type="range"/>
+  </range-slider>
+
+  <range-slider min=".1" max=".9" value="0.2-0.8" step=".01" style="
+    --thumb-width: 8px;
+    --thumb-height: 18px;
+    --thumb-mobile-width: 16px;
+    --thumb-border-radius: 0;
+    --thumb-bg: 0 0 0;
+    --track-bg: 241   219 15;
+  ">
+    <input class="range" type="range" min=".1" max=".9" step=".01" value="0.2"/>
+    <input class="range" type="range" min=".1" max=".9" step=".01" value="0.8"/>
+    <input class="filler" disabled type="range"/>
+  </range-slider>
+
+  <div id="value"></div>
+
+  <script>
+    const valueEl = document.getElementById('value');
+
+    document.addEventListener('range:input', function (event) {
+      valueEl.innerText = event.target.value.join(' — ');
+    });
+  </script>
+  <style type="text/css">
+    html, body {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.7rem;
+    }
+    range-slider {
+      width: 220px;
+    }
+    #value {
+      box-sizing: border-box;
+      position: fixed;
+      width: 100px;
+      top: 20px;
+      left: calc(50% - 40px);
+      white-space: nowrap;
+      text-align: center;
+      border-radius: 5px;
+    }
+    #value:not(:empty) {
+      padding: 10px;
+      box-shadow: 0 2px 15px -3px rgb(0 0 0 / 0.15), 0 2px 6px -4px rgb(0 0 0 / 0.1);
+    }
+  </style>
+</body>
+</html>
