@@ -1,6 +1,7 @@
 # RangeSlider
 
-Tiny html range slider with two thumbs. 1.5kB of minified and gzipped JS and CSS.
+Tiny HTML range slider with two thumbs. Perfect for price range sliders.
+2.6kB of minified and gzipped JS and CSS.
 
 [View Demo](https://codepen.io/vovayatsyuk/full/ZEvPJeW)
 
@@ -71,6 +72,10 @@ Variable                  | Default Value
 `--track-height`          | `4px`
 `--track-border-radius`   | `var(--thumb-border-radius)`
 `--track-bg`              | `234 234 234`
+`--value-font-size`       | `inherit`
+`--value-color`           | `40 40 40`
+`--value-bg`              | `255 255 255`
+`--value-border-radius`   | `3px`
 
 Check out the [Demo Page](https://codepen.io/vovayatsyuk/pen/ZEvPJeW?editors=0010) for more examples.
 
