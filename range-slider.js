@@ -6,7 +6,7 @@
 
 class RangeSlider extends HTMLElement {
     connectedCallback() {
-        this.addMarkup();
+        setTimeout(() => this.addMarkup(), 0);
         this.addEventListener('touchstart', this.onMouseDown.bind(this), { passive: true });
         this.addEventListener('mousedown', this.onMouseDown.bind(this));
         this.addEventListener('touchend', this.onMouseUp.bind(this));
