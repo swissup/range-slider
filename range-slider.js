@@ -21,6 +21,8 @@ class RangeSlider extends HTMLElement {
     set value(value) {
         this.min.value = Math.min(...value);
         this.max.value = Math.max(...value);
+        this.minOutput.value = this.min.value;
+        this.maxOutput.value = this.max.value;
     }
 
     addMarkup() {
@@ -31,6 +33,8 @@ class RangeSlider extends HTMLElement {
                 '<input class="filler" disabled type="range"/>',
             ].join(''));
         }
+
+        this.insertAdjacentHTML('beforeend', '<output></output><output></output>');
 
         this.initMinMaxElements();
 
@@ -54,6 +58,9 @@ class RangeSlider extends HTMLElement {
             this.min.value = this.min.min;
             this.max.value = this.max.max;
         }
+
+        this.minOutput.value = this.min.value;
+        this.maxOutput.value = this.max.value;
     }
 
     initMinMaxElements() {
@@ -66,6 +73,8 @@ class RangeSlider extends HTMLElement {
             this.min.name = name + '[min]';
             this.max.name = name + '[max]';
         }
+
+        [this.minOutput, this.maxOutput] = this.querySelectorAll('output');
     }
 
     /**
@@ -90,6 +99,7 @@ class RangeSlider extends HTMLElement {
         }
 
         this.insertBefore(this.max, this.min);
+        this.insertBefore(this.maxOutput, this.minOutput);
         this.initMinMaxElements();
     }
 
@@ -107,6 +117,12 @@ class RangeSlider extends HTMLElement {
             } else if (el.valueAsNumber < this.min.valueAsNumber) {
                 el.value = this.min.value;
             }
+        }
+
+        if (event.target === this.min) {
+            this.minOutput.value = this.min.value;
+        } else {
+            this.maxOutput.value = this.max.value;
         }
 
         this.dispatchEvent(new Event('range:input', {
