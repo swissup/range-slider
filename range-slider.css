@@ -121,7 +121,8 @@ range-slider :nth-child(2 of output) {
     position-anchor: --range-slider-thumb-2;
 }
 range-slider output {
-    inset-area: top;
+    position-area: top;
+    inset: 0 -5em;
     display: none;
     margin-bottom: .3em;
     position: absolute;
